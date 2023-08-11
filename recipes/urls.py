@@ -1,10 +1,10 @@
 from django.urls import path
-from django.http import HttpResponse
-from . import views
+from recipes import views
 
 
 
 urlpatterns = [
     path('', views.home),
+    path('recipes/', views.recipe),
     
-]
+]   
