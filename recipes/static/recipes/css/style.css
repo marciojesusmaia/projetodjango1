@@ -160,7 +160,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .recipe-list-item{
-    max-width: 640px;
+    max-width: 64rem;
     
 }
 
@@ -244,4 +244,16 @@ h1, h2, h3, h4, h5, h6{
 
 .main-footer a:hover{
     filter: hue-rotate(90);
+}
+
+.main-content-detail .recipe-list-item{
+    max-width: 84rem;
+    margin: 0 auto;
+    
+}
+
+.main-content-detail .recipe-list-item:hover{
+    transform: scale(1);
+    align-items: center;
+    box-shadow: -5px 5px 10px var(--color-gray-6);
 }
