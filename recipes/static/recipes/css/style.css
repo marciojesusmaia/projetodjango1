@@ -161,7 +161,7 @@ h1, h2, h3, h4, h5, h6{
 
 .recipe-list-item{
     max-width: 64rem;
-    
+    height: fit-content;
 }
 
 .recipe-list-item:hover{
@@ -256,4 +256,8 @@ h1, h2, h3, h4, h5, h6{
     transform: scale(1);
     align-items: center;
     box-shadow: -5px 5px 10px var(--color-gray-6);
+}
+
+.preparation-steps{
+    padding: var(--spacing-gutter-medium);
 }
