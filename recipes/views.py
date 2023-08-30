@@ -8,7 +8,8 @@ def home(request):
     return render(request, 'recipes/pages/home.html', context={'recipes': recipes})
 
 def recipe(request, id):
-    return render(request, 'recipes/pages/recipe-view.html', context={'recipe': make_recipe(), 'is_detail_page':True,})
+    recipe = Recipe.objects.filter(pk=id, is_published=True).order_by('-id').first()
+    return render(request, 'recipes/pages/recipe-view.html', context={'recipe': recipe, 'is_detail_page':True,})
 
 def category(request, category_id):
     recipes = get_list_or_404(Recipe.objects.filter(category__id=category_id, is_published=True).order_by('-id'))
