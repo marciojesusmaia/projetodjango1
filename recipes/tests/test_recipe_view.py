@@ -15,3 +15,11 @@ class RecipeViewsTest(TestCase):
     def test_recipe_detail_views_is_correct(self):
         view = resolve(reverse('recipes:recipe', kwargs={'id':1}))
         self.assertTrue(view.func, views.recipe)
+
+    def test_recipe_home_return_status_200(self):
+        response = self.client.get(reverse('recipes:home'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_recipe_home_loads_template(self):
+        response = self.client.get(reverse('recipes:home'))
+        self.assertTemplateUsed(response, 'recipes/partial/*.html')
