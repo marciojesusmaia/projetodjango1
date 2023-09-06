@@ -24,6 +24,14 @@ class RecipeViewsTest(TestCase):
         response = self.client.get(reverse('recipes:home'))
         self.assertTemplateUsed(response, 'recipes/partial/footer.html')
 
+    def test_category_home_return_status_404_is_not_found(self):
+        response = self.client.get(reverse('recipes:category', kwargs={'category_id':1,}))
+        self.assertEqual(response.status_code, 404)
+
+    def test_recipes_home_return_status_404_is_not_found(self):
+        response = self.client.get(reverse('recipes:recipe', kwargs={'id':1}))
+        self.assertEqual(response.status_code, 404)
+
     def test_recipe_home_show_no_recipes_found_if_no_recipe(self):
         response = self.client.get(reverse('recipes:home'))
         self.assertIn('Sem receitas ainda', response.content.decode('utf-8'))
